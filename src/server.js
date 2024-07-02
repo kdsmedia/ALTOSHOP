@@ -1,8 +1,7 @@
-// src/server.js
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
+require('dotenv').config();
 const config = require('./config/config');
 const { getProductList, getProductById } = require('./utils/productUtils');
 
@@ -32,9 +31,6 @@ app.post('/webhook', async (req, res) => {
     } else if (messageText.startsWith('checkout')) {
         const [_, productId, quantity] = messageText.split(' ');
         await sendPurchaseSummary(from, productId, quantity);
-    } else if (messageText.startsWith('url')) {
-        const url = messageText.split(' ')[1];
-        await saveUserUrl(from, url);
     } else {
         await sendDefaultReply(from);
     }
@@ -186,20 +182,6 @@ const sendPurchaseSummary = async (to, productId, quantity) => {
     } else {
         await sendDefaultReply(to);
     }
-};
-
-const saveUserUrl = async (to, url) => {
-    await axios.post(`https://graph.facebook.com/v16.0/${config.phoneNumberId}/messages`, {
-        messaging_product: 'whatsapp',
-        to,
-        type: 'text',
-        text: { body: `URL yang Anda berikan: ${url}` }
-    }, {
-        headers: {
-            'Authorization': `Bearer ${config.whatsappApiToken}`,
-            'Content-Type': 'application/json'
-        }
-    }).catch(error => console.error('Error saving user URL:', error));
 };
 
 const sendDefaultReply = async (to) => {
