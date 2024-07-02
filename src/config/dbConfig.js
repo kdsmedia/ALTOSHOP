@@ -1,5 +1,3 @@
-// src/config/dbConfig.js
-
 const mysql = require('mysql2');
 const { parse } = require('url');
 
