@@ -1,9 +1,3 @@
--- Buat Database
-CREATE DATABASE online_store;
-
--- Pilih Database
-USE online_store;
-
 -- Buat Tabel Produk
 CREATE TABLE products (
     id INT AUTO_INCREMENT PRIMARY KEY,
