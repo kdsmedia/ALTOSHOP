@@ -1,7 +1,7 @@
 {
-    "name": "whatsapp-bot-toko-online",
+    "name": "ALTO MEDIA",
     "version": "1.0.0",
-    "description": "A simple WhatsApp bot for online store using WhatsApp Cloud API",
+    "description": "A online store WhatsApp",
     "main": "src/server.js",
     "scripts": {
         "start": "node src/server.js"
