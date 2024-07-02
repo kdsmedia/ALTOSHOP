@@ -1,7 +1,8 @@
+// src/server.js
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
-require('dotenv').config();
 const config = require('./config/config');
 const { getProductList, getProductById } = require('./utils/productUtils');
 
@@ -10,7 +11,6 @@ const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
-// Endpoint untuk menerima pesan masuk
 app.post('/webhook', async (req, res) => {
     const message = req.body.entry[0].changes[0].value.messages[0];
     const from = message.from;
@@ -22,22 +22,17 @@ app.post('/webhook', async (req, res) => {
     }
 
     if (messageText.toLowerCase() === 'hai') {
-        // Menampilkan 6 produk awal
         await sendWelcomeMessage(from);
     } else if (messageText.startsWith('detail')) {
-        // Menampilkan detail produk berdasarkan ID
         const productId = messageText.split(' ')[1];
         await sendProductDetails(from, productId);
     } else if (messageText.startsWith('beli')) {
-        // Menampilkan pilihan produk dan jumlah untuk dibeli
         const productId = messageText.split(' ')[1];
         await showProductList(from, productId);
     } else if (messageText.startsWith('checkout')) {
-        // Menampilkan detail pembelian berdasarkan ID produk dan jumlah
         const [_, productId, quantity] = messageText.split(' ');
         await sendPurchaseSummary(from, productId, quantity);
     } else if (messageText.startsWith('url')) {
-        // Menyimpan URL video/profil/channel
         const url = messageText.split(' ')[1];
         await saveUserUrl(from, url);
     } else {
@@ -47,9 +42,8 @@ app.post('/webhook', async (req, res) => {
     res.sendStatus(200);
 });
 
-// Menyambut pengguna baru
 const sendWelcomeMessage = async (to) => {
-    const products = getProductList();
+    const products = await getProductList();
 
     const buttons = products.map(product => ({
         type: 'button',
@@ -77,9 +71,8 @@ const sendWelcomeMessage = async (to) => {
     }).catch(error => console.error('Error sending welcome message:', error));
 };
 
-// Menampilkan detail produk berdasarkan ID
 const sendProductDetails = async (to, productId) => {
-    const product = getProductById(productId);
+    const product = await getProductById(productId);
     if (product) {
         await axios.post(`https://graph.facebook.com/v16.0/${config.phoneNumberId}/messages`, {
             messaging_product: 'whatsapp',
@@ -117,9 +110,8 @@ const sendProductDetails = async (to, productId) => {
     }
 };
 
-// Menampilkan daftar produk untuk dibeli
 const showProductList = async (to, productId) => {
-    const product = getProductById(productId);
+    const product = await getProductById(productId);
     if (product) {
         await axios.post(`https://graph.facebook.com/v16.0/${config.phoneNumberId}/messages`, {
             messaging_product: 'whatsapp',
@@ -127,22 +119,16 @@ const showProductList = async (to, productId) => {
             type: 'interactive',
             interactive: {
                 type: 'list',
-                header: { type: 'text', text: 'Pilih Produk dan Jumlah' },
-                body: { text: `Pilih produk dan jumlah yang ingin dibeli:` },
+                header: { type: 'text', text: `Pilih jumlah ${product.name}` },
+                body: { text: 'Pilih jumlah produk yang ingin dibeli:' },
                 action: {
-                    button: 'Pilih Produk',
+                    button: 'Pilih Jumlah',
                     sections: [
                         {
-                            title: 'Pilih Produk',
-                            rows: getProductList().map(p => ({
-                                id: `product_${p.id}`,
-                                title: p.name,
-                                description: `Harga: Rp${p.price}`,
-                                body: [
-                                    { type: 'text', text: `Jumlah: ` },
-                                    { type: 'dropdown', options: Array.from({ length: 10 }, (_, i) => ({ label: `${i + 1}`, value: `${i + 1}` })) }
-                                ],
-                                action: { type: 'reply', reply: { id: `checkout_${p.id}`, title: 'Checkout' } }
+                            title: 'Pilih Jumlah',
+                            rows: Array.from({ length: 10 }, (_, i) => ({
+                                title: (i + 1).toString(),
+                                id: `checkout_${product.id}_${i + 1}`
                             }))
                         }
                     ]
@@ -159,9 +145,8 @@ const showProductList = async (to, productId) => {
     }
 };
 
-// Menampilkan detail pembelian
 const sendPurchaseSummary = async (to, productId, quantity) => {
-    const product = getProductById(productId);
+    const product = await getProductById(productId);
     if (product) {
         const totalPrice = product.price * quantity;
 
@@ -188,16 +173,7 @@ const sendPurchaseSummary = async (to, productId, quantity) => {
                     },
                     {
                         type: 'button',
-                        button: {
-                            type: 'url',
-                            url: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgAhW4uJgRKyuSGUry_tl9ThTvSQpqXSRXkP_Bho7kV8O_JXWDxosFR_mzyZvl7zb5MdRy-e6SPkgtWqiwByxH112KX51tzoCoANRy0O8FK_x8Mwsg5LanHS0qES9OeJI35bK27SIQ7013TyCImQVQLtsyqy-IyeSb5cIucM0Znpi1BsXPLEa4vr41m2BM/s682/qr.jpg'
-                        }
-                    },
-                    {
-                        type: 'text',
-                        text: {
-                            body: `Silakan berikan link/video/profil/channel kamu untuk melanjutkan.\n\nContoh link:\n- Video: https://www.youtube.com/watch?v=example\n- Profil: https://instagram.com/yourprofile\n- Channel: https://www.youtube.com/c/yourchannel`
-                        }
+                        button: { type: 'reply', reply: { id: 'payment_instructions', title: 'Instruksi Pembayaran' } }
                     }
                 ]
             }
@@ -212,15 +188,12 @@ const sendPurchaseSummary = async (to, productId, quantity) => {
     }
 };
 
-// Menyimpan URL video/profil/channel
 const saveUserUrl = async (to, url) => {
-    // Di sini, Anda dapat menambahkan logika untuk menyimpan URL di database atau mengirimkan balasan kepada pengguna
-
     await axios.post(`https://graph.facebook.com/v16.0/${config.phoneNumberId}/messages`, {
         messaging_product: 'whatsapp',
         to,
         type: 'text',
-        text: { body: `Terima kasih! Kami telah menerima link/video/profil/channel kamu: ${url}. Kami akan memproses pesanan kamu.` }
+        text: { body: `URL yang Anda berikan: ${url}` }
     }, {
         headers: {
             'Authorization': `Bearer ${config.whatsappApiToken}`,
@@ -229,7 +202,6 @@ const saveUserUrl = async (to, url) => {
     }).catch(error => console.error('Error saving user URL:', error));
 };
 
-// Menyediakan balasan default
 const sendDefaultReply = async (to) => {
     await axios.post(`https://graph.facebook.com/v16.0/${config.phoneNumberId}/messages`, {
         messaging_product: 'whatsapp',
@@ -245,5 +217,5 @@ const sendDefaultReply = async (to) => {
 };
 
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+    console.log(`Server listening on port ${port}`);
 });
