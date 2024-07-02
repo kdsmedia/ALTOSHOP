@@ -1,16 +1,17 @@
--- Buat Tabel Produk
 CREATE TABLE products (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    price DECIMAL(10,2) NOT NULL,
-    image TEXT NOT NULL
-);
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  price DECIMAL(10,2) NOT NULL,
+  description TEXT,
+  image_url VARCHAR(255),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
 
--- Tambahkan Data Produk
-INSERT INTO products (name, price, image) VALUES
-('Produk 1', 50000, 'https://example.com/product1.jpg'),
-('Produk 2', 60000, 'https://example.com/product2.jpg'),
-('Produk 3', 70000, 'https://example.com/product3.jpg'),
-('Produk 4', 80000, 'https://example.com/product4.jpg'),
-('Produk 5', 90000, 'https://example.com/product5.jpg'),
-('Produk 6', 100000, 'https://example.com/product6.jpg');
+INSERT INTO products (name, price, description, image_url) VALUES
+('Produk A', 100000, 'Deskripsi Produk A', 'https://example.com/images/produk_a.jpg'),
+('Produk B', 200000, 'Deskripsi Produk B', 'https://example.com/images/produk_b.jpg'),
+('Produk C', 150000, 'Deskripsi Produk C', 'https://example.com/images/produk_c.jpg'),
+('Produk D', 250000, 'Deskripsi Produk D', 'https://example.com/images/produk_d.jpg'),
+('Produk E', 300000, 'Deskripsi Produk E', 'https://example.com/images/produk_e.jpg'),
+('Produk F', 180000, 'Deskripsi Produk F', 'https://example.com/images/produk_f.jpg');
