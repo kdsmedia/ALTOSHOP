@@ -1,5 +1,3 @@
-// src/utils/productUtils.js
-
 const db = require('../config/dbConfig');
 
 const getProductList = () => {
