@@ -11,27 +11,27 @@ import { storage } from './storage.js';
 
 export const stages = [
   {
-    descricao: 'Welcome',
+    descricao: 'Selamat Datang',
     stage: initialStage,
   },
   {
-    descricao: 'Menu',
+    descricao: 'Pilih Menu',
     stage: stageOne,
   },
   {
-    descricao: 'Address',
+    descricao: 'Alamat',
     stage: stageTwo,
   },
   {
-    descricao: 'Bill',
+    descricao: 'Transaksi',
     stage: stageThree,
   },
   {
-    descricao: 'New Order',
+    descricao: 'Pembelian',
     stage: stageFour,
   },
   {
-    descricao: 'Assistent',
+    descricao: 'Pelayan',
     stage: finalStage,
   },
 ];
