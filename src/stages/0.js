@@ -4,6 +4,6 @@ export const initialStage = {
   exec({ from }) {
     storage[from].stage = 1;
 
-    return '👋 Hello how are you? \n\nI am Carlos, the *virtual assistant* of YouCloud. \n* can i help you?* 🙋‍♂️ \n-----------------------------------\n1️⃣ - ```MAKE A WISH``` \n2️⃣ - ```CHECK DELIVERY RATE```\n0️⃣ - ```TALK TO ATTENDANT```';
+    return '👋 Halo \n\nSaya ALTO, *Robot Canggih* MEDIA. \n* ada yang bisa saya bantu?* 🙋‍♂️ \n-----------------------------------\n1️⃣ - ```PESAN SESUATU``` \n2️⃣ - ```CEK PENGIRIMAN```\n0️⃣ - ```NGOBROL BERSAMA ALTO```';
   },
 };
