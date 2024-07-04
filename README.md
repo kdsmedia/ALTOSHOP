@@ -13,7 +13,7 @@
 <img alt="forks" title="forks" src="https://img.shields.io/github/forks/bibinprathap/whatsapp-chatbot" />
 <img alt="stars" title="stars" src="https://img.shields.io/github/stars/bibinprathap/whatsapp-chatbot" />
 <img alt="license" title="license" src="https://img.shields.io/github/license/bibinprathap/whatsapp-chatbot" />
-<a href="https://linkedin.com/in/bibin-prathap-4a34a489/">
+<a href="https://linkedin.com/">
 <img src="https://img.shields.io/badge/LinkedIn-blue?style=flat&logo=linkedin&labelColor=blue">
 </a>
 
@@ -47,10 +47,9 @@ Also, it's nice to have an editor to work with code like[VSCode](https://code.vi
 
 ```bash
 # Clone this repository
-$ git clone git@github.com:bibinprathap/whatsapp-chatbot.git
-
+$ git clone https://github.com/kdsmedia/ALTOSHOP
 # Access the project folder in the terminal/cmd
-$ cd whatsapp-chatbot
+$ cd ALTOSHOP
 
 # install dependencies
 $ npm install
