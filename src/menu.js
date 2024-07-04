@@ -1,22 +1,26 @@
 export const menu = {
   1: {
-    description: ' AL Ain Milk',
+    description: ' TikTok',
     price: 6,
   },
   2: {
-    description: 'Apple',
+    description: 'Instagram',
     price: 6,
   },
   3: {
-    description: 'Sugar',
+    description: 'YouTube',
     price: 6,
   },
   4: {
-    description: 'Onion',
+    description: 'Facebook',
     price: 6,
   },
   5: {
-    description: 'Tomato',
+    description: 'Alat Live',
     price: 6,
+  },
+  6: {
+    description: 'Konten FYP',
+    price: 7,
   },
 };
