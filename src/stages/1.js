@@ -19,28 +19,30 @@ export const stageOne = {
           msg += `4️⃣ - _${element.description}_ \n`;
         } else if (value === '5') {
           msg += `5️⃣ - _${element.description}_ \n`;
+          e if (value === '6') {
+          msg += `5️⃣ - _${element.description}_ \n`;
         }
       });
 
       msg +=
-        '\nTo view the cakes, *acesse*: https://wa.me/c/556884257619\n\n⚠️ ```ONLY ONE OPTION AT A TIME``` ⚠️\n*Enter OPTION referring to the product you want to order:*';
+        '\nUntuk melihat, *KLIK*: https://wa.me/6283872543697\n\n⚠️ ```HANYA SATU PILIHAN DALAM SATU WAKTU``` ⚠️\n*Masukkan PILIHAN nama produk yang ingin Anda pesan:*';
       storage[from].stage = 2;
 
       return msg;
     } else if (message === '2') {
       return (
-        '\n-----------------------------------\n1️⃣ - ```MAKE A WISH``` \n0️⃣ - ```TALK TO ATTENDANT```\n\n' +
+        '\n-----------------------------------\n1️⃣ - ```PESAN SESUATU``` \n0️⃣ - ```NGOBROL BERSAMA ALTO```\n\n' +
         neighborhoods +
-        '\n-----------------------------------\n1️⃣ - ```MAKE A WISH``` \n0️⃣ - ```TALK TO ATTENDANT``` '
+        '\n-----------------------------------\n1️⃣ - ```PESAN SESUATU``` \n0️⃣ - ```NGOBROL BERSAMA ALTO``` '
       );
     } else if (message === '0') {
       client.markUnseenMessage(from);
 
       storage[from].stage = 5;
 
-      return '🔃 Forwarding you to an attendant. \n⏳ *Wait a minute*.';
+      return '🔃 Menghubungkan Anda ke ALTO. \n⏳ *Tunggu sebentar*.';
     }
 
-    return '❌ *Enter a valid option, please.*\n⚠️ ```ONLY ONE OPTION AT A TIME``` ⚠️';
+    return '❌ *Silakan masukkan MENU yang BENAR.*\n⚠️ ```HANYA SATU PILIHAN DALAM SATU WAKTU``` ⚠️';
   },
 };
