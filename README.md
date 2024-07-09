@@ -1,89 +1,161 @@
-# Whatsapp Bot with VENOM-BOT
+# BOT IS BACK #AIUPDATE
+Dikarenakan saya sudah mendapatkan base baru dan Baileys terbaru dari situs [`NPM`](https://www.npmjs.com/package/baileys), maka bot sudah dapat berjalan dengan benar, terimakasih banyak untuk yang telah mendukung pengembangan bot ini, namun saya meminta maaf jika ada fitur yang dipangkas seperti game, tictactoe, akinator, buttons dll karena Baileys ini masih dalam pengembangan. Doakan supaya bot bisa kembali update dengan normal. Have fun dan #SalamCoding!
 
-## Project description
+Bot ini sekarang memiliki fitur OpenAI Chat dan buat gambar dari AI, buat seru-seruan aja wkwkwkwk :)
 
-<p align="center"></p>
-<h1 align="center">
-    <a href="https://nodejs.org/en/">🔗 NodeJS</a>
-    <a href="https://www.npmjs.com/package/venom-bot">🧠 Venom Bot</a>
-</h1>
-<p align="center"> 
-<img alt="stars" title="stars" src="https://img.shields.io/github/stars/bibinprathap/whatsapp-chatbot" />
-<img alt="issues" title="issues" src="https://img.shields.io/github/issues/bibinprathap/whatsapp-chatbot" />
-<img alt="forks" title="forks" src="https://img.shields.io/github/forks/bibinprathap/whatsapp-chatbot" />
-<img alt="stars" title="stars" src="https://img.shields.io/github/stars/bibinprathap/whatsapp-chatbot" />
-<img alt="license" title="license" src="https://img.shields.io/github/license/bibinprathap/whatsapp-chatbot" />
-<a href="https://linkedin.com/">
-<img src="https://img.shields.io/badge/LinkedIn-blue?style=flat&logo=linkedin&labelColor=blue">
-</a>
+Last Updated Version: GabutBot-Reborn v5.0
 
+# BOT APAKAH INI?
+Bot ini adalah bot MD (Multi-Device), sehingga bot ini dapat digunakan meskipun hp pengguna mati. Bot ini masih dalam pengembangan (baileys beta) sehingga terdapat masih banyak bug di dalamnya. Bot ini No Encrypt, sehingga pengguna dapat recode (asal jangan dijual juga) dan dapat menambah fitur tertentu dengan apikey. 
+
+Recode by me and [`ManzSteviaOFC`](https://www.youtube.com/channel/UCHEszLndQmgMITqKtwy2DXQ))
+
+# GabutBot-Reborn
+Full Featured Bot Updated Script 🤖
+
+## NOTE
+This script is for everyone, not for sale. Jika dijual neraka menunggumu brother !
+
+<p align="center">
+	<img src="https://i.ibb.co/HNrcfzB/wallpapersden-com-ao-no-exorcist-okumura-rin-man-1996x1413.jpg" width="35%" style="margin-left: auto;margin-right: auto;display: block;">
 </p>
-<p align="center">🚀 Project created in order to assist in the demands of orders from  customers  via WhatsApp.
- Start Chat
-</p>
-<br>
-<h1 align="center">
- Start Chat  
-  <img alt="Welcome" title="Welcome" src="./assets/image6.jpg" />
-  Welcome
-  <img alt="Welcome" title="Welcome" src="./assets/image5.png" />
-  Menu
-  <img alt="Menu" title="Menu" src="./assets/image2.png" />
-  Order
-  <img alt="Order" title="Order" src="./assets/image3.png" />
-  Address
-  <img alt="Address" title="Address" src="./assets/image1.png" />
-  Bill
-  <img alt="Bill" title="Bill" src="./assets/image4.png" /> 
-</h1>
+<h1 align="center">GabutBot-Reborn</h1>
 
-### Prerequisites
+This is Script of WhatsApp multi device, working with [`@adiwajshing/baileys`](https://github.com/adiwajshing/baileys)
 
-Before starting, you will need to have the following tools installed on your machine:
-[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
-Also, it's nice to have an editor to work with code like[VSCode](https://code.visualstudio.com/).
+## UNTUK PENGGUNA WINDOWS/RDP
 
-### 🎲 Running our application
+* Unduh & Instal Git [`Klik Disini`](https://git-scm.com/downloads)
+* Unduh & Instal NodeJS [`Klik Disini`](https://nodejs.org/en/download)
+* Unduh & Instal FFmpeg [`Klik Disini`](https://ffmpeg.org/download.html) (**Jangan Lupa Tambahkan FFmpeg ke variabel lingkungan PATH**)
+
 
 ```bash
-# Clone this repository
-$ git clone https://github.com/kdsmedia/ALTOSHOP
-# Access the project folder in the terminal/cmd
-$ cd ALTOSHOP
-
-# install dependencies
-$ npm install
-
-# Run the application in development mode
-$ yarn dev
-
-## Ready, scan the QR code of Whatsapp and Voilà, enjoy!
+npm install yarn --global
+git clone https://github.com/YangJunMing12/GabutBot-mD
+cd GabutBot-MD
+yarn
+npm start
 ```
 
-### 🛠 Technologies
+## HOW TO CONNECT TO MONGODB WHEN RUN IN HEROKU
 
-The following tools were used in the construction of the project:
+* Create account and database in mongodb atlas [`watch here`](https://youtu.be/rPqRyYJmx2g)
+* when you already have a database, you just need to take mongourl
+* Put mongourl in Procfile `web: node . --db 'mongourl'`
+* Example `web: node . -- db 'Your Mongo URI'`
 
-- [Node.js](https://nodejs.org/en/)
- 
 
 
-### Author
+## FOR TERMUX/UBUNTU/SSH USER
 
----
-  
+```bash
+apt update && apt upgrade
+apt install git -y
+apt install nodejs -y
+apt install ffmpeg -y
+git clone https://github.com/YangJunMing12/GabutBot-IV
+cd GabutBot-MD
+npm i
+```
 
-Done with ❤️ by Sidhanie 👋🏽 !
+## RECOMMENDED INSTALL ON TERMUX
 
-<h3 align="left"></h3>
-<p align="left">
-<a href="https://linkedin.com/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="bibin-prathap-4a34a489" height="30" width="40" /></a>
-<a href="https://stackoverflow.com" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/stack-overflow.svg" alt="6724770/bibin-prathap" height="30" width="40" /></a>
-<a href="https://fb.com/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="bibin.prathap" height="30" width="40" /></a>
-<a href="https://medium.com/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/medium.svg" alt="@bibinprathap" height="30" width="40" /></a>
-</p> 
+```bash
+pkg install yarn
+yarn
+```
 
-<h3 align="left">Support:</h3>
-<p><a href="https://www.buymeacoffee.com/"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="bibinprathap" /></a></p><br><br>
-<a href="https://blogsidhanie.blogspot.com/" target="blank">Sidhanie</a>
+## Installing
+```bash
+$ node .
+```
 
+## Features
+
+| Group |                     Feature                |
+| :------------: | :---------------------------------------------: |
+|       ✅        |  Hidetag               |
+|       ✅        |  Grup close atau open       |
+|       ✅        |  Gcname          |
+|       ✅        |  Gcdesk       |
+|       ✅        |  Add              |
+|       ✅        |  Kick              |
+|       ✅        |  Ownergc              |
+|       ✅        |  Leave              |
+|       ✅        |  Promote              |
+|       ✅        |  Demote              |
+|       ✅        |  Ephemeral             |
+|       ✅        |  Vote           |
+|       ✅        |  Antilink         |
+
+| Search |                     Feature                |
+| :------------: | :---------------------------------------------: |
+|       ✅        |  Youtube play             |
+|       ✅        |  Youtube search     |
+|       ✅        |  Google & google image      |
+|       ✅        |  Pinterest       |
+|       ✅        |  Search Wallpaper           |
+|       ✅        |  Youtube Search             |
+|       ✅        |  Spotify Search           |
+|       ✅        |  Wikimedia             |
+|       ✅        |  Ringtone             |
+|       ✅        |  Stalk People          |
+|       ✅        |  Gsmarena            |
+|       ✅        |  Kamus KBBI          |
+
+| Creator |                     Feature                |
+| :------------: | :---------------------------------------------: |
+|       ✅        |  ATTP & TTP            |
+|       ✅        |  Sticker To Image/Video/GIF   |
+|       ✅        |  Emoji Mix     |
+|       ✅        |  Pinterest       |
+|       ✅        |  Sticker          |
+|       ✅        |  Sticker WM            |
+|       ✅        |  Sticker Meme         |
+|       ✅        |  KTP Fake Maker         |
+|       ✅        |  Sertifikat Bucin/Pacaran/Tolol        |
+|       ✅        |  Translate Kode Biner         |
+
+| Downloader |                     Feature                |
+| :------------: | :---------------------------------------------: |
+|       ✅        |  Tiktok WM/No WM/Slide Show            |
+|       ✅        |  Spotify/Joox/SoundCloud Download |
+|       ✅        |  Youtube Music     |
+|       ✅        |  Youtube Video      |
+|       ✅        |  Facebook/IG/Twitter Download          |
+|       ✅        |  ZippyShare Download       |
+|       ✅        |  Get Music or Get Video        |
+
+| AI Chat (NEW!) |                     Feature                |
+| :------------: | :---------------------------------------------: |
+|       ✅        |  Chat Open AI & Open AI Turbo 3.5           |
+|       ✅        |  Dall-E & Diffusion (Buat gambar dari AI) |
+|       ✅        |  Speech to text    |
+
+... and more! Menfess, fun menu ready 
+
+## ❗ Warning
+WhatsApp Bot is still in the development stage, so there are a few bugs
+WhatsApp Connection (BETA, not working perfectly)
+
+Editing Number Owner & session name in [`config.js`]
+Get Apikey LolHuman on [`LolHuman`](https://api.lolhuman.xyz) harga murah kok sans 
+
+
+## Thanks To
+* [`@adiwajshing/baileys`](https://github.com/adiwajshing/baileys)
+* [`Nurutomo`](https://github.com/Nurutomo)
+* [`Mhankbarbar`](https://github.com/MhankBarBar)
+* [`Faiz`](https://github.com/FaizBastomi)
+* [`Shiny Sebastian`](https://github.com/YangJunMing12)
+
+```Thanks to all who have participated in the development of this script```
+
+
+License: [MIT](https://en.wikipedia.org/wiki/MIT_License)
+
+Support Me
+* ```OVO``` 08116646665
+
+# Thank you and have fun!
